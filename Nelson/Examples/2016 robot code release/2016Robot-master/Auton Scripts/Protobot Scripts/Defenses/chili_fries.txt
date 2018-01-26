@@ -1,0 +1,13 @@
+﻿set_drive y=-0.3 heading=180
+wait_for condition=past_y_dist distance=-4.5
+set_drive y=0 heading=180
+set_intake mode=auto command=drop_low
+wait maxTime=1000
+set_drive y=-0.9 heading=180
+wait maxTime=750
+set_intake mode=auto command=pull_up
+;wait maxTime=500
+wait_for condition=past_roll_limit maxTime=500
+set_drive y=0
+fast_pivot heading=0 speed=0.8
+resetEncoders

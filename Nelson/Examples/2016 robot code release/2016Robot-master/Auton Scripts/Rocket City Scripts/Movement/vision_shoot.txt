@@ -1,0 +1,27 @@
+﻿set_intake mode=auto command=idle
+resetEncoders
+jump condition=2 pos=2 ahead=7
+jump condition=2 pos=5 ahead=6
+set_drive y=0.7 heading=0
+wait_for condition=past_y_dist distance=1.5
+set_drive y=0
+set_drive y=0
+jump condition=0 ahead=5
+set_drive y=0.8 heading=0
+wait_for condition=past_y_dist distance=9
+set_drive y=0 heading=0
+jump condition=2 pos=5 ahead=6
+jump condition=2 pos=2 ahead=2
+jump condition=0 ahead=5
+set_drive y=0 heading=65
+fast_pivot heading=65 speed=0.6
+jump condition=0 ahead=2
+fast_pivot heading=-25 speed=0.8
+wait maxTime=1000
+set_shooter mode=auto type=vision command=warm
+wait maxTime=500
+set_shooter mode=auto type=vision command=warm
+wait_for condition=vision_aligned
+;wait maxTime=500
+set_shooter mode=auto type=vision command=shot
+set_intake mode=auto command=pull_up

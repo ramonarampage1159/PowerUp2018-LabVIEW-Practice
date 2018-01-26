@@ -1,0 +1,6 @@
+﻿yaw_zero angle=0
+set_intake mode=auto command=idle
+wait maxTime=500
+set_intake mode=manual override_angle=-11 intake=yes
+wait maxTime=100
+set_intake mode=auto command=pull_up

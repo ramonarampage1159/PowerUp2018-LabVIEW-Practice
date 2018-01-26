@@ -1,0 +1,36 @@
+#Fire a ball after 3s
+CLOSE
+CAL_SET_SHOT_AUTON_1
+WAIT 300
+FIRE
+#Okay got the first ball
+
+#Wait for the choo choo to come back
+WAIT 2000
+
+#Suck
+SUCK
+
+#Drive forward 3'
+NAV_DRIVE_STRAIGHT 52
+
+NOSUCK
+CLOSE
+
+#Wait for things to settle
+WAIT 700
+
+#Toggle suck really fast to put the collector down
+SUCK
+WAIT 40
+NOSUCK
+
+#Now wait for the collector to go down for reals
+WAIT 600
+
+#FIRE!!!!!
+FIRE
+
+WAIT 1000
+
+NAV_DRIVE_STRAIGHT 48

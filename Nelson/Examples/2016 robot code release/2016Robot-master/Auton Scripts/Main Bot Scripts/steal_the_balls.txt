@@ -1,0 +1,18 @@
+﻿//STEAL ALL THE BALLS!!!1!!11!!!!
+yaw_zero angle=0
+pidDrive y=.8 speed=.7 async=yes
+shoot mode=manual rpm_override=yes leftRPM=750 rightRPM=750 angle_override=yes angle=50
+wait_for_drive
+//Loop this vvv
+set_intake mode=auto command=load
+wait maxTime=750
+shoot mode=manual rpm_override=yes leftRPM=150 rightRPM=150 angle_override=yes angle=60
+set_intake mode=auto command=idle
+set_drive y=0
+fast_pivot heading=90 speed=.9
+resetEncoders
+set_drive y=.8 heading=90
+wait_for condition=past_y_dist distance=3.5
+set_drive y=0 heading=90
+fast_pivot heading=0 speed=.9
+//Loop Over

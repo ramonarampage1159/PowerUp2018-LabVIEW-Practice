@@ -1,0 +1,116 @@
+﻿<?xml version="1.0"?>
+<SyntaxDefinition name="Custom Highlighting" xmlns="http://icsharpcode.net/sharpdevelop/syntaxdefinition/2008">
+	<Color name="Comment" foreground="Gray" />
+	<Color name="String" foreground="Blue" />
+	
+	<Color name="Blacknormal" foreground="Black" fontWeight="normal" fontStyle="normal"/>
+	<Color name="Bluenormal" foreground="Blue" fontWeight="normal" fontStyle="normal"/>
+	<Color name="Brownnormal" foreground="Brown" fontWeight="normal" fontStyle="normal"/>
+	<Color name="DarkGreennormal" foreground="DarkGreen" fontWeight="normal" fontStyle="normal"/>
+	<Color name="Graynormal" foreground="Gray" fontWeight="normal" fontStyle="normal"/>
+	<Color name="DimGraynormal" foreground="DimGray" fontWeight="normal" fontStyle="normal"/>
+	<Color name="Greennormal" foreground="Green" fontWeight="normal" fontStyle="normal"/>
+	<Color name="HotPinknormal" foreground="HotPink" fontWeight="normal" fontStyle="normal"/>
+	<Color name="LightBluenormal" foreground="LightBlue" fontWeight="normal" fontStyle="normal"/>
+	<Color name="LightGraynormal" foreground="LightGray" fontWeight="normal" fontStyle="normal"/>
+	<Color name="Maroonnormal" foreground="Maroon" fontWeight="normal" fontStyle="normal"/>
+	<Color name="Navynormal" foreground="Navy" fontWeight="normal" fontStyle="normal"/>
+	<Color name="Orangenormal" foreground="Orange" fontWeight="normal" fontStyle="normal"/>
+	<Color name="Purplenormal" foreground="Purple" fontWeight="normal" fontStyle="normal"/>
+	<Color name="Rednormal" foreground="Red" fontWeight="normal" fontStyle="normal"/>
+	<Color name="Tealnormal" foreground="Teal" fontWeight="normal" fontStyle="normal"/>
+	<Color name="Violetnormal" foreground="Violet" fontWeight="normal" fontStyle="normal"/>
+	<Color name="Yellownormal" foreground="Yellow" fontWeight="normal" fontStyle="normal"/>
+	
+	<Color name="Blackbold" foreground="Black" fontWeight="bold" fontStyle="normal"/>
+	<Color name="Bluebold" foreground="Blue" fontWeight="bold" fontStyle="normal"/>
+	<Color name="Brownbold" foreground="Brown" fontWeight="bold" fontStyle="normal"/>
+	<Color name="DarkGreenbold" foreground="DarkGreen" fontWeight="bold" fontStyle="normal"/>
+	<Color name="Graybold" foreground="Gray" fontWeight="bold" fontStyle="normal"/>
+	<Color name="DimGraybold" foreground="DimGray" fontWeight="bold" fontStyle="normal"/>
+	<Color name="Greenbold" foreground="Green" fontWeight="bold" fontStyle="normal"/>
+	<Color name="HotPinkbold" foreground="HotPink" fontWeight="bold" fontStyle="normal"/>
+	<Color name="LightBluebold" foreground="LightBlue" fontWeight="bold" fontStyle="normal"/>
+	<Color name="LightGraybold" foreground="LightGray" fontWeight="bold" fontStyle="normal"/>
+	<Color name="Maroonbold" foreground="Maroon" fontWeight="bold" fontStyle="normal"/>
+	<Color name="Navybold" foreground="Navy" fontWeight="bold" fontStyle="normal"/>
+	<Color name="Orangebold" foreground="Orange" fontWeight="bold" fontStyle="normal"/>
+	<Color name="Purplebold" foreground="Purple" fontWeight="bold" fontStyle="normal"/>
+	<Color name="Redbold" foreground="Red" fontWeight="bold" fontStyle="normal"/>
+	<Color name="Tealbold" foreground="Teal" fontWeight="bold" fontStyle="normal"/>
+	<Color name="Violetbold" foreground="Violet" fontWeight="bold" fontStyle="normal"/>
+	<Color name="Yellowbold" foreground="Yellow" fontWeight="bold" fontStyle="normal"/>
+	
+	
+	<Color name="Blackitalic" foreground="Black" fontWeight="normal" fontStyle="italic"/>
+	<Color name="Blueitalic" foreground="Blue" fontWeight="normal" fontStyle="italic"/>
+	<Color name="Brownitalic" foreground="Brown" fontWeight="normal" fontStyle="italic"/>
+	<Color name="DarkGreenitalic" foreground="DarkGreen" fontWeight="normal" fontStyle="italic"/>
+	<Color name="Grayitalic" foreground="Gray" fontWeight="normal" fontStyle="italic"/>
+	<Color name="DimGrayitalic" foreground="DimGray" fontWeight="normal" fontStyle="italic"/>
+	<Color name="Greenitalic" foreground="Green" fontWeight="normal" fontStyle="italic"/>
+	<Color name="HotPinkitalic" foreground="HotPink" fontWeight="normal" fontStyle="italic"/>
+	<Color name="LightBlueitalic" foreground="LightBlue" fontWeight="normal" fontStyle="italic"/>
+	<Color name="LightGrayitalic" foreground="LightGray" fontWeight="normal" fontStyle="italic"/>
+	<Color name="Maroonitalic" foreground="Maroon" fontWeight="normal" fontStyle="italic"/>
+	<Color name="Navyitalic" foreground="Navy" fontWeight="normal" fontStyle="italic"/>
+	<Color name="Orangeitalic" foreground="Orange" fontWeight="normal" fontStyle="italic"/>
+	<Color name="Purpleitalic" foreground="Purple" fontWeight="normal" fontStyle="italic"/>
+	<Color name="Reditalic" foreground="Red" fontWeight="normal" fontStyle="italic"/>
+	<Color name="Tealitalic" foreground="Teal" fontWeight="normal" fontStyle="italic"/>
+	<Color name="Violetitalic" foreground="Violet" fontWeight="normal" fontStyle="italic"/>
+	<Color name="Yellowitalic" foreground="Yellow" fontWeight="normal" fontStyle="italic"/>
+	
+	<Color name="Blackbolditalic" foreground="Black" fontWeight="bold" fontStyle="italic"/>
+	<Color name="Bluebolditalic" foreground="Blue" fontWeight="bold" fontStyle="italic"/>
+	<Color name="Brownbolditalic" foreground="Brown" fontWeight="bold" fontStyle="italic"/>
+	<Color name="DarkGreenbolditalic" foreground="DarkGreen" fontWeight="bold" fontStyle="italic"/>
+	<Color name="Graybolditalic" foreground="Gray" fontWeight="bold" fontStyle="italic"/>
+	<Color name="DimGraybolditalic" foreground="DimGray" fontWeight="bold" fontStyle="italic"/>
+	<Color name="Greenbolditalic" foreground="Green" fontWeight="bold" fontStyle="italic"/>
+	<Color name="HotPinkbolditalic" foreground="HotPink" fontWeight="bold" fontStyle="italic"/>
+	<Color name="LightBluebolditalic" foreground="LightBlue" fontWeight="bold" fontStyle="italic"/>
+	<Color name="LightGraybolditalic" foreground="LightGray" fontWeight="bold" fontStyle="italic"/>
+	<Color name="Maroonbolditalic" foreground="Maroon" fontWeight="bold" fontStyle="italic"/>
+	<Color name="Navybolditalic" foreground="Navy" fontWeight="bold" fontStyle="italic"/>
+	<Color name="Orangebolditalic" foreground="Orange" fontWeight="bold" fontStyle="italic"/>
+	<Color name="Purplebolditalic" foreground="Purple" fontWeight="bold" fontStyle="italic"/>
+	<Color name="Redbolditalic" foreground="Red" fontWeight="bold" fontStyle="italic"/>
+	<Color name="Tealbolditalic" foreground="Teal" fontWeight="bold" fontStyle="italic"/>
+	<Color name="Violetbolditalic" foreground="Violet" fontWeight="bold" fontStyle="italic"/>
+	<Color name="Yellowbolditalic" foreground="Yellow" fontWeight="bold" fontStyle="italic"/>
+	
+	
+	<!-- This is the main ruleset. -->
+	<RuleSet>
+		
+		<!--
+		<Span color="Comment" begin="//" />
+		<Span color="Comment" begin=";" />
+		<Span color="Comment" multiline="true" begin="/\*" end="\*/" />
+		-->
+		<!--
+		<Span color="String">
+			<Begin>"</Begin>
+			<End>"</End>
+			<RuleSet>
+				
+				<Span begin="\\" end="." />
+			</RuleSet>
+		</Span>
+		
+		-->
+		
+		<!-- Digits -->
+	<!--
+		<Rule foreground="DarkBlue">
+            \b0[xX][0-9a-fA-F]+  # hex number
+        |    \b
+            (    \d+(\.[0-9]+)?   #number with optional floating point
+            |    \.[0-9]+         #or just starting with floating point
+            )
+            ([eE][+-]?[0-9]+)? # optional exponent
+        </Rule>
+	-->
+	</RuleSet>
+</SyntaxDefinition>

@@ -1,0 +1,8 @@
+﻿set_drive y=1 heading=0
+wait maxTime=500
+wait_for condition=past_roll_limit maxTime=1000
+set_drive y=0 heading=0
+resetEncoders
+set_drive y=.6 heading=0
+wait_for condition=past_y_dist distance=5
+set_drive y=0 heading=0

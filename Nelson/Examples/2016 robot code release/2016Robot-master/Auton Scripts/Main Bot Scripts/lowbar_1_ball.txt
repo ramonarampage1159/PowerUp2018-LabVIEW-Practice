@@ -1,0 +1,37 @@
+﻿yaw_zero angle=0
+set_intake mode=manual override_angle=no
+set_drive y=.6
+wait_for condition=past_y_dist distance=1.5
+set_intake mode=auto command=idle
+wait_for condition=past_y_dist distance=10
+warmup type=middle
+wait_for condition=past_y_dist distance=10.5
+set_drive y=.6 heading=9
+set_intake mode=auto command=pull_up
+wait_for condition=past_y_dist distance=15.5
+set_drive y=.6 heading=0
+wait_for condition=past_y_dist distance=16
+set_drive y=0
+fast_pivot heading=47.3 speed=.5
+//set_drive heading=50 y=0it
+//wait maxTime=1500
+resetEncoders
+set_drive y=.6 heading=47.3
+set_intake mode=auto command=load
+wait_for condition=past_y_dist distance=2
+;set_intake mode=auto command=idle
+set_drive y=0 heading=47.3
+;set_intake mode=auto command=load
+shoot mode=auto type=middle
+resetEncoders
+wait maxTime=500
+set_intake mode=auto command=pull_up
+set_drive y=-0.6 heading=47.3
+wait_for condition=past_y_dist distance=-1
+fast_pivot heading=9 speed=.6
+set_drive y=-0.6 heading=9
+set_intake mode=auto command=drop_low
+wait_for condition=past_y_dist distance=-6.25
+set_drive y=-0.6 heading=0
+wait_for condition=past_y_dist distance=-16
+set_drive y=0

@@ -1,0 +1,69 @@
+﻿set_intake mode=auto command=load
+yaw_zero angle=0
+set_drive y=0 heading=0
+wait maxTime=750
+//drive to the first waypoint
+set_drive y=0.6 heading=0
+wait_for condition=past_y_dist distance=1.25
+set_drive y=0 heading=0
+set_intake mode=auto command=idle
+//turn to 30 degrees
+resetEncoders
+pidDrive speed=0 heading=-30
+resetEncoders
+//drive to the next waypoint
+set_drive y=0.6 heading=-30
+wait_for condition=past_y_dist distance=1.5
+set_drive y=0 heading=-30
+//turn to 0 degrees
+resetEncoders
+pidDrive speed=0 heading=0
+resetEncoders
+//we are now right in front of the low bar
+//drive 8.25 feet to get to shot position
+set_drive y=0.7 heading=0
+wait_for condition=past_y_dist distance=8.25
+set_drive y=0 heading=0
+//line up for the shot
+resetEncoders
+pidDrive speed=0 heading=40
+resetEncoders
+//vision warmup
+set_shooter mode=auto type=vision command=warm
+//wait 1.5 seconds
+wait maxTime=1500
+//shoot 1st ball
+set_shooter mode=auto type=vision command=shot
+//turn back to 0 degrees to go under the low bar 
+set_intake mode=auto command=drop_low
+resetEncoders
+pidDrive speed=0 heading=0
+resetEncoders
+//retreat under the low bar
+set_drive y=-0.7 heading=0
+//drive backward to the ball position
+wait_for condition=past_y_dist distance=-8
+set_intake mode=auto command=idle
+wait_for condition=past_y_dist distance=-12
+//zero for reference
+resetEncoders
+set_drive y=0 heading=0
+set_intake mode=auto command=load
+wait maxTime=500
+//after ball is grasped, approach the low bar
+set_drive y=0.7 heading=0
+wait_for condition=past_y_dist distance=4
+//once in front of the low bar, stop loading and protect the intake
+set_intake mode=auto command=drop_low
+//cross low bar to shot position
+wait_for condition=past_y_dist distance=12
+//turn to the shot
+resetEncoders
+pidDrive speed=0 heading=40
+resetEncoders
+//vision warmup
+set_shooter mode=auto type=vision command=warm
+//wait 1.5 seconds
+wait maxTime=1500
+//shoot 2nd ball
+set_shooter mode=auto type=vision command=shot

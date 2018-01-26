@@ -1,0 +1,5 @@
+﻿yaw_zero angle=0
+set_drive y=.8 heading=0
+wait_for condition=past_y_dist distance=2.5
+set_drive y=.3
+wait_for condition=past_y_dist distance=3

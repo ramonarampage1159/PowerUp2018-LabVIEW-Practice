@@ -1,0 +1,78 @@
+﻿yaw_zero angle=0
+warmup type=corner
+//set_intake mode=manual override_angle=yes arm_angle=0
+set_drive y=.9
+wait_for condition=past_y_dist distance=1.5
+set_intake mode=auto command=load
+;set_intake mode=manual override_angle=yes arm_angle=0
+wait_for condition=past_y_dist distance=10.5
+set_drive y=.9 heading=9
+;set_intake mode=manual override_angle=no
+set_intake mode=auto command=pull_up
+wait_for condition=past_y_dist distance=11.5
+set_drive y=0
+fast_pivot heading=38.5 speed=.9
+resetEncoders
+set_drive y=.9 heading=38.5
+set_intake mode=auto command=load
+wait_for condition=past_y_dist distance=0.5
+set_drive y=0 heading=38.5
+wait maxTime=150
+shoot mode=auto type=corner
+resetEncoders
+set_drive y=-.9 heading=38.5
+wait_for condition=past_y_dist distance=-0.5
+set_drive y=0 heading=38.5
+;stop_shooting
+lower_shooter
+fast_pivot heading=0 speed=.9
+resetEncoders
+set_drive y=-.9 heading=0
+wait_for condition=past_y_dist distance=-8
+//set_intake mode=auto command=pull_up
+set_drive y=0
+lower_shooter
+set_intake mode=auto command=idle
+fast_pivot heading=-45 speed=.9
+resetEncoders
+set_drive y=-.9 heading=-45
+wait_for condition=past_y_dist distance=-1.25
+set_intake mode=auto command=load
+set_drive y=0
+fast_pivot heading=0 speed=.9
+stop_shooting
+;set_intake mode=manual intake=yes override_angle=yes arm_angle=-10 override_intake=yes override_speed=-1
+resetEncoders
+;;;;pidDrive y=-0.8 speed=.9
+set_drive y=-.4
+wait_for condition=past_y_dist distance=-.2
+set_drive y=0
+wait maxTime=600
+;;;;pidDrive y=0.8 speed=.9
+set_drive y=.9
+wait_for condition=past_y_dist distance=.2
+fast_pivot heading=-43 speed=.9
+resetEncoders
+lower_shooter
+;set_intake mode=auto command=manual
+set_drive y=0.9 heading=-43
+wait_for condition=past_y_dist distance=1
+set_drive y=0 heading=-43
+fast_pivot heading=0 speed=.9
+resetEncoders
+set_intake mode=auto command=idle
+set_drive y=0.9 heading=0
+wait_for condition=past_y_dist distance=7
+warmup type=corner
+set_drive y=.9 heading=9
+set_intake mode=auto command=pull_up
+wait_for condition=past_y_dist distance=9
+set_drive y=0 heading=9
+fast_pivot heading=38.5 speed=1
+resetEncoders
+set_intake mode=auto command=idle
+set_drive y=1 heading=38.5
+wait_for condition=past_y_dist distance=0.5
+set_drive y=0 heading=38.5
+wait maxTime=150
+shoot mode=auto type=corner

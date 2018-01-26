@@ -1,0 +1,7 @@
+﻿resetEncoders
+set_intake command=idle
+set_drive y=.5 
+wait_for condition=
+set_drive y=.75
+wait_for condition=
+set_drive y=0

@@ -1,0 +1,17 @@
+﻿;warmup type=middle
+set_shooter mode=auto type=middle command=warm
+set_intake mode=auto command=drop_low
+jump condition=2 pos=2 ahead=4
+jump condition=2 pos=3 ahead=5
+jump condition=2 pos=4 ahead=6
+jump condition=2 pos=5 ahead=7
+fast_pivot heading=35 speed=.3
+jump condition=0 ahead=6
+fast_pivot heading=15 speed=.3
+jump condition=0 ahead=4
+fast_pivot heading=-10 speed=.3
+jump condition=0 ahead=2
+fast_pivot heading=-35 speed=.3
+resetEncoders
+wait maxTime=2000
+set_shooter mode=auto type=middle command=shot

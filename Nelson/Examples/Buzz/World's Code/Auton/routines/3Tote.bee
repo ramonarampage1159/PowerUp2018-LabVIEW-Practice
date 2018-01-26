@@ -1,0 +1,73 @@
+#3Tote20pointAutoWithRamp 
+
+#Start Sucking
+CollectOn
+
+#Close Claw
+ClawClose
+
+#raise can up
+4Barto6
+
+#Wait a second
+Wait 1000
+
+#Drive and pick up the two totes ahead 
+DriveStraight2 69 60
+
+#Wait a second
+Wait 1500
+
+#Close Wheels
+CloseWheels
+
+#Spin Can out the way
+CollectBlow
+
+#Turn a little
+Turn -6 40
+
+#Drive a little bit forward
+DriveStraight2 45 35
+
+#Turn a little back
+Turn 28 45
+
+#Collect back to sensing
+IntakeSense
+
+#Return to Sucking
+CollectOn
+
+#Drive to third tote
+DriveStraight2 43 31
+
+#Wait before dynamic movement
+Wait 400
+
+#Turn to go score
+Turn 75 50
+
+#Drive to go score
+DriveStraight2 -80 75
+
+#Cut off Collector
+CollectOff
+
+#Score!
+DropStack
+
+#Wait 
+Wait 200
+
+#Blow
+CollectBlow
+
+#Wait
+Wait 50
+
+#Drive Backwards
+DriveStraight2 -45 50
+
+#Exit Score
+#ExitScore

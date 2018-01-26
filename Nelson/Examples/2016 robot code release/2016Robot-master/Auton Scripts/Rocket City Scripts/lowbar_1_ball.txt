@@ -1,0 +1,53 @@
+﻿set_intake mode=manual override_angle=no
+yaw_zero angle=0
+set_drive y=.6
+wait_for condition=past_y_dist distance=1.5
+set_intake mode=auto command=drop_low
+wait_for condition=past_y_dist distance=10
+;warmup type=middle
+;set_shooter type=middle command=warm mode=auto
+wait_for condition=past_y_dist distance=10.5
+set_drive y=.6 heading=9
+set_intake mode=auto command=idle
+wait_for condition=past_y_dist distance=15.5
+set_drive y=.6 heading=0
+wait_for condition=past_y_dist distance=17
+set_drive y=0
+fast_pivot heading=57 speed=.6
+//set_drive heading=50 y=0
+//wait maxTime=1500
+set_intake mode=auto command=idle
+resetEncoders
+set_drive y=.6 heading=57
+wait_for condition=past_y_dist distance=1.5
+;set_intake mode=auto command=idle
+set_drive y=0 heading=57
+;set_intake mode=auto command=load
+;shoot mode=auto type=middle
+wait maxTime=1000
+set_shooter mode=auto type=vision command=warm
+;wait maxTime=750
+jump condition=vision_not_found ahead=2
+wait_for condition=vision_aligned
+;set_shooter mode=auto type=vision command=shot
+;jump condition=0 ahead=6
+set_shooter mode=auto type=middle command=warm
+;resetEncoders
+;fast_pivot heading=49 speed=0.7
+;resetEncoders
+wait maxTime=500
+set_shooter mode=auto type=middle command=shot
+set_shooter mode=auto type=middle command=idle
+resetEncoders
+wait maxTime=250
+set_intake mode=auto command=lift_half
+set_drive y=-0.8 heading=57
+wait_for condition=past_y_dist distance=-1.25
+set_drive y=0 heading=9
+fast_pivot heading=9 speed=.6
+set_drive y=-0.6 heading=9
+set_intake mode=auto command=drop_low
+wait_for condition=past_y_dist distance=-5.25
+set_drive y=-0.4 heading=0
+wait_for condition=past_y_dist distance=-17
+set_drive y=0

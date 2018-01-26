@@ -1,0 +1,67 @@
+﻿set_intake mode=auto command=idle
+yaw_zero angle=0
+set_drive y=-0.9 heading=-10
+;warmup type=corner
+set_shooter mode=auto type=corner command=warm
+wait_for condition=past_y_dist distance=-7
+set_drive y=0 heading=-10
+set_intake mode=auto command=drop_low
+set_drive y=0 heading=48
+fast_pivot heading=48 speed=0.9
+resetEncoders
+wait maxTime=500
+set_shooter mode=auto type=corner command=shot
+set_shooter mode=auto type=corner command=idle
+set_drive y=0 heading=8
+fast_pivot heading=8 speed=0.9
+resetEncoders
+//set_intake mode=auto command=pull_up
+set_drive y=-0.9 heading=5
+wait_for condition=past_y_dist distance=-2
+set_drive y=-0.9 heading=0
+wait_for condition=past_y_dist distance=-12
+set_drive y=0
+//get the next ball
+set_intake mode=auto command=load
+//TIME FOR SPLINES
+resetEncoders
+//Segment 1
+set_drive y=-0.9 heading=0
+wait_for condition=past_y_dist distance=-.979
+//Segment 2
+resetEncoders
+set_drive y=0 heading=0
+fast_pivot heading=-49.57 speed=0.9
+set_drive y=-0.9 heading=-49.57
+wait_for condition=past_y_dist distance=-.739
+//Segment 3
+resetEncoders
+set_drive y=0 heading=-49.57
+fast_pivot heading=-67.24 speed=0.9
+set_drive y=-0.9 heading=-67.24
+wait_for condition=past_y_dist distance=-.650
+//Segment 4
+resetEncoders
+set_drive y=0 heading=-67.24
+fast_pivot heading=-59.69 speed=0.9
+set_drive y=-0.9 heading=-59.69
+wait_for condition=past_y_dist distance=-.615
+//Segment 5
+resetEncoders
+set_drive y=0 heading=-59.69
+fast_pivot heading=0 speed=0.9
+set_drive y=-0.9 heading=0
+wait_for condition=past_y_dist distance=-.646
+//End Pseudo-Spline
+set_drive y=0 heading=0
+//OLD CODE
+;set_intake mode=manual intake=yes override_intake=yes override_speed=0.8
+;set_drive y=0 heading=-25
+;fast_pivot heading=-25 speed=0.9
+;resetEncoders
+//pidDrive y=-4 speed=.9 heading=-35
+;set_drive y=-.5 heading=-25
+;wait_for condition=past_y_dist distance=-1
+;set_drive y=0 heading=0
+;fast_pivot heading=0 speed=1
+;resetEncoders

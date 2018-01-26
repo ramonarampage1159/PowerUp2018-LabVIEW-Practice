@@ -1,0 +1,21 @@
+#Grab 1 Can from Staging Zone
+#open Claw
+ClawFullOpen
+
+#Wait
+Wait 100
+
+#close Claw
+ClawClose
+
+#Wait
+Wait 1000
+
+#Back away 4 feet 
+DriveStraight2 -50 50
+
+#Raise Arm
+4BartoCarry
+
+#Done
+end

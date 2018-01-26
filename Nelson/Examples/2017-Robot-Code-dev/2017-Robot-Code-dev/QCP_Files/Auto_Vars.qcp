@@ -1,0 +1,43 @@
+#Hopper auto values
+Close_Hopper_X, 0, 0, -42
+Close_Hopper_Y, 0, 71, 91
+Far_Hopper_Y_Offset, 0, 47, 47
+Hopper_Theta_Initial, 1.570796
+Hopper_Theta_Final, 3.14159
+Hopper_Time_Taken, 3.5
+Hopper_Blue_Turret, 95
+Hopper_Red_Turret, -90
+Hopper_Trigger_Y_Offset, 0, 7, 7
+
+#Gear auto center peg
+Center_Peg_X, 112, 112
+Center_Peg_Y, 0, 35
+Center_Peg_Theta_Init, 1.570796
+Center_Peg_Theta_Final, 1.5708
+Center_Peg_Time_Taken, 1
+
+#Gear auto right peg
+Right_Peg_X, 214, 188
+Right_Peg_Y, 0, 93
+Right_Peg_Theta_Init, 1.570796
+Right_Peg_Theta_Final, 2.5
+Right_Peg_Time_Taken, 2.5
+
+#Gear auto left peg
+Left_Peg_X, 0, 26
+Left_Peg_Y, 0, 91
+Left_Peg_Theta_Init, 1.570796
+Left_Peg_Theta_Final, 0.54
+Left_Peg_Time_Taken, 2.5
+
+#General auto vars
+Orient_Change_Limit, 30
+Pid_Segments, 60
+
+#General Hopper Auto Vars
+Gear_Place_Timeout, 2.75
+Failsafe_Distance, 70
+After_Spline_Cutoff_Dist, 50
+Raise_Gear_Manip_Time, 2.5
+Backup_Distance, -40
+Backup_Crash_Distance, -26

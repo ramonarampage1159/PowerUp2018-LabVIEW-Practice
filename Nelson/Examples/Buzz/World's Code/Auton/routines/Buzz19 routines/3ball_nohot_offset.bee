@@ -1,0 +1,68 @@
+#Fire a ball after a bit
+CLOSE
+CAL_SET_SHOT_AUTON_1
+WAIT 100
+FIRE
+#Okay got the first ball
+
+#Wait for the choo choo to come in enough to not F the pickup
+WAIT 700
+
+#Suck the second ball in
+SUCK
+
+#Wait for the ball sensor
+WAIT_FOR_BALL 1000
+
+#Wait just a litle bit more
+WAIT 200
+
+#Stop sucking
+NOSUCK
+CLOSE
+
+#Wait for the collector to go up
+WAIT 1000
+
+
+#FIRE IT!!!
+FIRE
+
+
+####################
+#This is where we are happy
+####################
+
+#Then wait for things to settle
+WAIT 150
+
+#Start sucking
+SUCK
+
+#Drive forward 3'
+NAV_DRIVE_STRAIGHT 36
+
+#Wait for the ball to come in
+WAIT_FOR_BALL 1000
+
+#Wait a bit more
+WAIT 250
+
+NOSUCK
+CLOSE
+
+#Wait for things to settle
+WAIT 1000
+
+#FIRE!!!!!
+FIRE
+
+####
+#This is where we think we are happy
+####
+
+
+###Drive a bit more
+WAIT 100
+
+NAV_DRIVE_STRAIGHT 69

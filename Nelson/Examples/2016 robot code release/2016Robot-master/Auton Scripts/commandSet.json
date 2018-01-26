@@ -1,0 +1,221 @@
+[
+	{
+		"name":"wait",
+		"id": 0,
+		"desc": "sleep for the specified duration",
+		"subs": [
+				{"name":"maxTime", "id":0,"desc":"wait duration (ms). (0 = forever)"}
+		]
+	},
+	
+	{
+		"name":"pidDrive",
+		"id": 1,
+		"desc": "drive wth PID control",
+		"subs": [
+				{"name":"maxTime", "id":0,"desc":"wait duration (ms). (0 = forever)"},
+				{"name":"y", "id":1,"desc":"distance to go in the y direction"},
+				{"name":"speed", "id":2,"desc":"speed to go in the y direction"},
+				{"name":"async", "id":3,"desc":"Wait until drive is finished (0=no, 1=yes)"},
+				{"name":"heading", "id":4,"desc":"angle to drive toward"}
+		]
+	},
+	
+	{
+		"name":"hybridDrive",
+		"id": 2,
+		"desc":"drive with a feedforward + PID combo control",
+		"subs": [
+				{"name":"maxTime", "id":0,"desc":"wait duration (ms). (0 = forever)"},
+				{"name":"y", "id":1,"desc":"distance to go in the y direction"},
+				{"name":"speed", "id":2,"desc":"max speed allowed by motion profile"},
+				{"name":"async", "id":3,"desc":"Wait until drive is finished (0=no, 1=yes)"},
+				{"name":"heading", "id":4,"desc":"angle to drive toward"},
+				{"name":"accel", "id":5,"desc":"max accel allowed by the motion profile"}
+		]
+	},
+	
+	{
+		"name":"jump",
+		"id": 3,
+		"desc":"jump to a command",
+		"subs": [
+				{"name":"ahead", "id":0,"desc":"command to jump to"},
+				{"name":"condition", "id":1,"desc":"condition that would make you jump (0=none,1= Start_pos>3 2=start_pos)"},
+				{"name":"pos", "id":2,"desc":"position to compare"}
+		]
+	},
+	
+	{
+		"name":"shoot",
+		"id": 4,
+		"desc":"Shoot the ball",
+		"subs": [
+				{"name":"maxTime", "id":0,"desc":"wait duration (ms). (0 = forever)"},
+				{"name":"type", "id":1,"desc":"type of shot to attempt (0=manual, 1=vision, 2=batter, 3=corner, 4=middle)"},
+				{"name":"leftRPM", "id":2,"desc":"override RPM of the left motor"},
+				{"name":"rightRPM", "id":3,"desc":"override RPM of the right motor"},
+				{"name":"rpm_override", "id":4,"desc":"use rpm override? (0=no, 1=yes)"},
+				{"name":"angle", "id":5,"desc":"angle override"},
+				{"name":"angle_override", "id":6,"desc":"use angle override? (0=no, 1=yes)"},
+		]
+	},
+	{
+    "name":"wait_for",
+    "id": 5,
+    "desc":"Waits for a condition to be true",
+    "subs" : [
+			{"name":"maxTime", "id":0,"desc":"time limit (ms). (0 = forever)"},
+			{"name":"condition","id":1,"desc":""},
+			{"name":"distance","id":2,"desc":""},
+		]
+	},
+	{
+    "name":"wait_for_drive",
+    "id": 6,
+    "desc":"Waits until driving completes",
+    "subs" : [
+		]
+	},
+	{
+    "name":"set_intake",
+    "id": 7,
+    "desc":"sets everything to do with the intake",
+    "subs" : [
+			{"name":"mode", "id":0, "desc":"Intake Mode (0=Manual,1=Safe,2=Auto)"},
+			{"name":"command", "id":1, "desc":"Intake Command (0=idle,1=load,2=unload,3=pull_up,4=drop_low,5=lift_half)"},
+			{"name":"intake", "id":2, "desc":"Manual Intake? (0=no,1=yes)"},
+			{"name":"eject", "id":3, "desc":"Manual Eject? (0=no,1=yes)"},
+			{"name":"override_intake", "id":4, "desc":"Override Intake? (0=no,1=yes)"},
+			{"name":"override_speed", "id":5, "desc":"Override Speed"},
+			{"name":"override_eject", "id":6, "desc":"Override Eject? (0=no,1=yes)"},
+			{"name":"override_eject_speed", "id":7, "desc":"Override Eject Speed"},
+			{"name":"override_arm", "id":8, "desc":"Override Arm Speed? (0=no, 1=yes)"},
+			{"name":"arm_speed", "id":9, "desc":"Arm Speed"},
+			{"name":"override_angle", "id":10, "desc":"Override Arm Angle? (0=no, 1=yes)"},
+			{"name":"arm_angle", "id":11, "desc":"Arm Angle"}
+		]
+	},
+	{
+    "name":"resetEncoders",
+    "id": 8,
+    "desc":"Resets the Drivetrain Encoders",
+    "subs" : [
+		]
+	},
+	{
+    "name":"warmup",
+    "id": 9,
+    "desc":"Warms up the shooter",
+    "subs" : [
+			{"name":"type", "id":1,"desc":"type of shot to attempt (0=manual, 1=vision, 2=batter, 3=corner, 4=middle)"},
+		]
+	},
+	{
+    "name":"set_drive",
+    "id": 10,
+    "desc":"Drives without distance PID, just using gyro",
+    "subs" : [
+			{"name":"y","id":2,"desc":"y speed"},
+			{"name":"heading","id":4,"desc":"gyro heading target"}
+		]
+	}, 
+	{
+    "name":"shift",
+    "id": 11,
+    "desc":"shifts gears",
+    "subs" : [
+		]
+	},
+	{
+    "name":"yaw_zero",
+    "id": 12,
+    "desc":"sets a reference angle for gyro orientation",
+    "subs" : [
+			{"name":"angle","id":4,"desc":"reference angle to set"},
+		]
+	},
+	{
+    "name":"tank_drive",
+    "id": 13,
+    "desc":"controls robot using tank mode",
+    "subs" : [
+			{"name":"maxTime", "id":0,"desc":"wait duration (ms). (0 = forever)"},
+			{"name":"left","id":1,"desc":"reference angle to set"},
+			{"name":"right","id":2,"desc":"reference angle to set"},
+		]
+	},
+	{
+    "name":"fast_pivot",
+    "id": 14,
+    "desc":"turns in place real fast",
+    "subs" : [
+			{"name":"maxTime", "id":0,"desc":"wait duration (ms). (0 = forever)"},
+			{"name":"speed","id":2,"desc":"speed to pivot at"},
+			{"name":"heading","id":4,"desc":"the heading to pivot to"},
+		]
+	},
+	{
+    "name":"stop_shooting",
+    "id": 15,
+    "desc":"sets shooter to idle",
+    "subs" : [
+			
+		]
+	},
+	{
+    "name":"lower_shooter",
+    "id": 16,
+    "desc":"sets shooter to low position",
+    "subs" : [
+			
+		]
+	},
+	{
+	"name":"positionDrive",
+	"id":17,
+	"desc":"drives to desired defense position from current position (1 starting from low bar)",
+	"subs" : [
+			{"name":"desiredPos", "id":1,"desc":"desired position to drive to"},
+		]
+	},
+	{
+	"name":"set_shooter",
+	"id":18,
+	"desc":"sets shooter controls instead of having multiple commands",
+	"subs" : [
+			{"name":"mode", "id":0,"desc":"Desired Shooter Mode"},
+			{"name":"type", "id":1,"desc":"Desired Shot Type"},
+			{"name":"command", "id":2,"desc":"Desired Command for the shooter"},
+		]
+	},
+	
+	
+	{"alias":"no", "represents":0},
+	{"alias":"yes", "represents":1},
+	{"alias":"forever", "represents":0},
+	{"alias":"manual", "represents":0},
+	{"alias":"vision", "represents":1},
+	{"alias":"batter", "represents":2},
+	{"alias":"corner", "represents":3},
+	{"alias":"middle", "represents":4},
+	{"alias":"cleat", "represents":5},
+	{"alias":"none", "represents":0},
+	{"alias":"manual", "represents":0},
+	{"alias":"safe", "represents":1},
+	{"alias":"auto", "represents":2},
+	{"alias":"idle", "represents":0},
+	{"alias":"load", "represents":1},
+	{"alias":"unload", "represents":2},
+	{"alias":"pull_up", "represents":3},
+	{"alias":"drop_low", "represents":4},
+	{"alias":"lift_half", "represents":5},
+	{"alias":"goal_detected", "represents":2},
+	{"alias":"past_y_dist", "represents":0},
+	{"alias":"past_roll_limit", "represents":7},
+	{"alias":"vision_aligned", "represents":8},
+	{"alias":"warm", "represents":1},
+	{"alias":"shot", "represents":2},
+	{"alias":"vision_not_found", "represents":3},
+	
+]

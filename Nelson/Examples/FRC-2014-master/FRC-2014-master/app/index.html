@@ -1,0 +1,259 @@
+<!-- written by: Ryan Johnson, Art Kalb, Maxwell Yun, Vidur Maheshwari -->
+<!DOCTYPE HTML>
+<html>
+<head>
+  <script src="jquery.min.js"></script>
+  <script src="rainbow.js" ></script>
+<script type="text/javascript">
+//Example JSON array
+ var dataarray = {
+				Motor_Speed: {
+					Left: 15,
+					Right: 12
+				},
+				Encoders: {
+					LF: 15,
+					RF: 7,
+					LB: 8,
+					RB: 10
+				},
+				Test: {
+					LF: 15,
+					RF: 7,
+					LB: 8,
+					RB: 10
+				},
+				gyro: 25
+};
+
+//SCS Array. SCS stands for stored chart settings. This array is automagically populated by the parsejson() function from the data from the the JSON retreived from the getall() function. A example of the data retreived from the getall() function is in the dataarray (above). 
+var scs = {
+};
+
+//Subsystems array. Contains the verbatim word to go after http://10.2.54.2:41234/subsytems?name=. If you click test or pause it bypasses this. Eventually, this should be auto-populated.
+var subsystems = ["Drivebase", "Intake", "Shooter", "test", "PAUSE"];
+
+//Sets the current chart to the first item of the subsytem array. Makes it so that it will render a chart
+var current = subsystems[0];
+
+//Sets the previous to the first item for initialization. This helps the parser tell if the dataset has changed otherwise it will create a bunch of graphs.
+var last = subsystems[0];
+
+//An aray of the charts on the page. To be used later.c
+var containers = [];
+
+//When the document loads do:
+   $(document).ready(function(e) {
+	//Define Color sets for the charts. Only uses Multi at this point.
+    CanvasJS.addColorSet("Blue",
+                [//colorSet Array
+                "#0070FF",             
+                ]);
+	CanvasJS.addColorSet("Green",
+                [//colorSet Array
+                "#00AA00",             
+                ]);
+	CanvasJS.addColorSet("Red",
+                [//colorSet Array
+                "#FF0000",             
+                ]);
+	CanvasJS.addColorSet("Dark",
+                [//colorSet Array
+                "#222222",             
+                ]);
+	CanvasJS.addColorSet("Light",
+                [//colorSet Array
+                "#DDDDDD",             
+                ]);
+	CanvasJS.addColorSet("Multi",
+                [//colorSet Array
+                "#FF0000",
+				"#00AA00", 
+				"#0070FF", 
+				"#986CF8", 
+				"#F28263",
+				"#222222",           
+                ]);	
+		//Creates the buttons in the navbar based on the items in the subsystems array
+		for (tab in subsystems){
+			$(".buttons").append("<a>" + subsystems[tab] + "</a>");
+		}
+		
+		//Whenever a button is clicked change the current chart set and change the button style
+		$(".buttons a").bind("click", function(){
+			current = $(this).html();
+			$(".buttons a").each(function(index, element) {
+                $(this).attr("style", "");
+            });
+			$(this).css("background-color", "#FFFFFF");
+			$(this).css("color", "#0070FF");
+		});
+		
+		//Make the first button "clicked" on page load
+		$(".buttons a").each(function(index, element) {
+            if (index == 0){
+				$(this).css("background-color", "#FFFFFF");
+				$(this).css("color", "#0070FF");
+			}
+        });
+		
+	});
+	$("#interval").bind("change", function(){
+			set_interval($(this).val())
+			alert("change");
+		});
+	
+	function set_interval(int){
+			
+		}
+			
+    function clear(){
+		scs = [];
+	}
+	  //JSON Parser. Takes in robot json, processes it, and from there pushes new values to the SCS array or completely restructures it.
+	  function parsejson(arrayin){
+			if (current != last){
+				scs = {};
+				containers = [];
+				$("#content").html("");
+			}
+			for (var key in arrayin){
+				if (key != "subsystem"){
+				if (scs[key] === undefined){
+					$("#content").append('<div id="' + key + '" style="height: 300px; width: 100%;">asd</div>');
+					scs[key] = [];
+					containers.push(key);
+				}
+				if (scs[key].data === undefined){
+					scs[key].data = [];
+				}
+				
+					if (typeof(arrayin[key]) == "object"){
+						var i = 0;
+						for (var subkey in arrayin[key]){
+							if (scs[key].data[i] === undefined){
+								scs[key].data[i]=[];
+							}
+							if (scs[key].data[i][0] === undefined){
+								scs[key].data[i][0]=subkey;
+							}
+							scs[key].data[i].push({y: arrayin[key][subkey]});
+							i = i + 1;
+						}
+					} else {
+						scs[key].data.push({y: arrayin[key]});
+					}
+					scs[key].assocvar = "";
+				}
+			}
+			last = current;
+	}
+	   //Second parser. generates graph data. Takes stuff from SCS and puts it in a nice fromat for the graph library to read. 
+	  function ggd(handler){
+		
+		var indata = [];
+			if (scs[handler].data[0][0] != undefined){
+				for (i = 0; i < scs[handler].data.length; i++){
+					data = [];
+					for (j = 1; j < scs[handler].data[i].length; j ++){
+						data.push(scs[handler].data[i][j]);
+					}
+					indata.push({type: "line", showInLegend: true, lineThickness: 2, name: scs[handler].data[i][0], dataPoints: data});
+				}
+			} else {
+				indata.push({type: "line", showInLegend: true, lineThickness: 2, name: handler, dataPoints: scs[handler].data});
+			}
+		
+		return indata;   
+	}
+	  //generates a graph
+      function generate (handler) {
+          scs[handler].assocvar = new CanvasJS.Chart(handler, {
+              theme: "theme1",//theme1
+              
+			  colorSet: "Multi",
+			  
+			  title:{
+                  text: handler             
+              },
+              data: ggd(handler)
+          });
+          scs[handler].assocvar.render();
+      }
+	  	//generates all graphs, uses the generate function multiple times.
+	   function genall(){
+			for (i in scs){
+				generate(i);
+				
+			}
+	   }
+	   //Gets data
+	   function getall(){
+		   if (current != "test" && current != "PAUSE"){
+			   $.getJSON('http://10.2.54.2:41234/subsystem?name=' + current,function(datajson) {
+				  
+				  parsejson(datajson);
+				  genall();
+				});
+		   } else if (current == "test"){
+			   parsejson(dataarray);
+			   genall();
+		   } else {
+			   //do nothing
+		   }
+	   }
+	   var interval = setInterval(function(){
+			  getall();
+			}, 33);
+  </script>
+  <!--<script type="text/javascript" src="http://canvasjs.com/assets/script/canvasjs.min.js"></script>-->
+  <script type="text/javascript" src="canvasjs-1/canvasjs.min.js"></script>
+<link href="css.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<nav>
+<span class="rainbows">Teh Chezy Pofs Deta Lawgr</span> <input type="text" value="1000" id="interval" style="float:right; display:none; position: absolute"/> <div class="buttons"></div> 
+</nav>
+<div id="content">
+<!--<div id="usual1" class="usual" style="border:none"> 
+  <div class="ulcontain">
+  <ul> 
+    <li><a name="tab1" href="#tab1" class="selected">Drivebase</a></li> 
+    <li><a name="tab2" href="#tab2">Intake</a></li> 
+    <li><a name="tab3" href="#tab3">Shooter</a></li> 
+  </ul> 
+  </div>
+  <div class="usual" id="tab1">
+      <div id="chartContainera" style="height: 300px; width: 100%;"></div><br>
+      <div id="chartContainerab" style="height: 300px; width: 100%;"></div>
+  </div> 
+  <div class="usual" id="tab2"><div id="chartContainerb" style="height: 300px; width: 100%;"></div></div> 
+  <div class="usual" id="tab3"><div id="chartContainerc" style="height: 300px; width: 100%;"></div></div> --> 
+</div>
+<script src="tabbed.js"></script>
+<script type="text/javascript"> 
+  $("#usual1 ul").idTabs(); 
+</script>
+<script>
+	var currentTab = "tab1";
+  //If you want rainbows uncomment me
+  /*$('.rainbows').rainbow({ 
+    colors: [
+        '#FF0000',
+        '#f26522',
+        '#fff200',
+        '#00a651',
+        '#28abe2',
+        '#2e3192',
+        '#6868ff'
+    ],
+    animate: true,
+    animateInterval: 50,
+    pad: false,
+    pauseLength: 50,
+});*/
+	
+  </script>
+  <div id="extra"></div>
+</body>
+</html>

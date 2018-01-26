@@ -1,0 +1,19 @@
+﻿set_drive y=0 heading=180
+set_intake mode=auto command=drop_low
+set_drive y=-0.3 heading=180
+wait_for condition=past_y_dist distance=-5.5
+set_drive y=0 heading=180
+;set_intake mode=auto command=lift_half
+set_intake mode=auto command=drop_low
+wait maxTime=1500
+set_drive y=-0.5 heading=180
+wait_for condition=past_y_dist distance=-7.5
+set_intake mode=auto command=pull_up
+wait_for condition=past_y_dist distance=-12.5
+set_drive y=0 heading=0
+fast_pivot heading=0 speed=.8
+resetEncoders
+set_drive y=.6 heading=0
+wait_for condition=past_y_dist distance=1.25
+set_drive y=0
+set_intake mode=auto command=idle

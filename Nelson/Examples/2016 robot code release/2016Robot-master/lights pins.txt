@@ -1,0 +1,24 @@
+LIGHT STATES
+
+Analog Multiplex thing
+
+MSB
+Bit 0 - Finger
+Bit 1 - Stabilizer
+Bit 2 - Elevator Auto/Manual
+LSB
+
+
+State 3 / State 2 / State 1
+DIO 7   / DIO 8   / DIO 9
+
+0 / 0 / 0 -- Teleop
+0 / 0 / 1 -- Auto 
+0 / 1 / 0 -- Score
+0 / 1 / 1 -- Coop
+1 / 0 / 0 -- Brownout
+1 / 0 / 1 -- Lost Comm
+1 / 1 / 0 -- Full
+1 / 1 / 1 -- Disabled
+
+

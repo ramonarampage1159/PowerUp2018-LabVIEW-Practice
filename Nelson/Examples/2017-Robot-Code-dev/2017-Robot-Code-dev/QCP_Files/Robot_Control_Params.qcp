@@ -1,0 +1,109 @@
+#FMS
+Feeder_Speed, 0.760038
+FMS_Foward_Speed, 0.486137
+FMS_Reverse_Speed, -0.449524
+FMS_Duty_Cycle, 65
+FMS_Period, 400
+FMS_Rate_Limit, 501.869
+FMS_Transition_Duty_Cycle, 60
+FMS_Transition_Period, 300
+FMS_Transition_Fwd_Speed, 0.63287
+FMS_Transition_Rev_Speed, -0.273234
+
+#Turret
+Turret_Max_Speed, 0.349825
+Turret_Desired, 56
+Turret_Range_For_I, 10
+Turret_CW_Bound, 110
+Turret_CCW_Bound, -120
+Turret_Feed_CW, 0
+Turret_Feed_CCW, 0
+
+#Turret Target Valid State (no pid values used) (min rate also not used)
+Turret_Valid_PID_P, 0.012
+Turret_Valid_PID_I, 0.009
+Turret_Valid_PID_D, 0.0
+Turret_Valid_PID_High, 0.9
+Turret_Valid_PID_Low, -0.9
+Turret_Valid_Wait_In_Search, 0.376995
+Turret_Valid_Lost_Time, 0.530113
+Turret_Valid_Setpoint_Tol, 0.5
+Turret_Valid_Min_Rate, 0.2
+
+#Turret Search State (no pid values used)
+Turret_Search_PID_P, 0.018
+Turret_Search_PID_I, 0.003
+Turret_Search_PID_D, 0.005
+Turret_Search_PID_High, 0.25
+Turret_Search_PID_Low, -0.25
+Turret_Search_Tol, 7
+Turret_Search_Softstop, 2
+
+#Turret Guess/Desired Angle State (no pid values used)
+Turret_Guess_PID_P, 0.015
+Turret_Guess_PID_I, 0.005
+Turret_Guess_PID_D, 0.6
+Turret_Guess_PID_High, 0.5
+Turret_Guess_PID_Low, -0.5
+Turret_Guess_Stable_Movement, 0.118075
+Turret_Guess_Valid_Time, 0.191611
+Turret_Guess_State_Time, 0
+Turret_Guess_Switch_Outer_Delta, 20
+
+#Top Shooter Wheel
+Top_Wheel_PID_P, 0.04
+Top_Wheel_PID_I, 0.0003
+Top_Wheel_PID_D, 2
+Top_Wheel_PID_F, 0.0132
+Top_Wheel_Enc_Counts, 4096
+Top_Wheel_I_Zone, 0
+Top_Wheel_Ramp_Rate, 0
+Top_Wheel_RPM_Tol, 25
+Top_Wheel_Red_Mul, 0.979185
+Top_Wheel_Blue_Mul, 0.977
+
+#Bottom Shooter Wheel
+Bot_Wheel_PID_P, 0.16
+Bot_Wheel_PID_I, 0.001
+Bot_Wheel_PID_D, 7
+Bot_Wheel_PID_F, 0.0288
+Bot_Wheel_Enc_Counts, 4096
+Bot_Wheel_I_Zone, 0
+Bot_Wheel_Ramp_Rate, 0
+Bot_Wheel_RPM_Tol, 25
+Bot_Wheel_Red_Mul, 0.97956
+Bot_Wheel_Blue_Mul, 0.977
+
+#Gear Delivery New
+Gear_Deliver_PID_P, 0.03
+Gear_Deliver_PID_I, 0.0
+Gear_Deliver_PID_D, 0.005
+Gear_Deliver_PID_High, 0.6
+Gear_Deliver_PID_Low, -0.6
+Gear_Deliver_Offset, 6
+
+#Gear Mechanism
+Gear_Intake_Fwd_Speed, 0.709504
+Gear_Intake_Rev_Speed, -1
+Gear_Intake_Factor, 335
+Gear_Intake_PDP_Adr, 1
+Gear_Intake_PDP_Channel, 9
+Gear_Zero_Down_Time, 1
+Gear_Zero_Down_Power, -0.4
+Gear_Catch_Pos, 70
+Gear_Home_Pos, 88
+Gear_Intake_Pos, -12
+Gear_Score_Pos, 25
+Gear_Mech_PID_P, 0.015
+Gear_Mech_PID_I, 0.0
+Gear_Mech_PID_D, 0.0005
+Gear_Mech_PID_High, 0.45
+Gear_Mech_PID_Low, -0.25
+
+#Gear Stall Detect
+Gear_Stall_Eval, 0.192536
+Gear_Stall_Thresh, 20
+Gear_Stall_Rate_Limit, 195.749
+
+#Vision variables
+Vision_Boiler_Offset, 0

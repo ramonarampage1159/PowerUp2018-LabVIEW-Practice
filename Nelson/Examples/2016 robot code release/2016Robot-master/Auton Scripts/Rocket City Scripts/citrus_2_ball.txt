@@ -1,0 +1,43 @@
+﻿set_intake mode=auto command=load
+yaw_zero angle=0
+set_drive y=0 heading=0
+wait maxTime=750
+set_drive y=0.6 heading=0
+wait_for condition=past_y_dist distance=1
+set_intake mode=auto command=idle
+set_drive y=0 heading=0
+resetEncoders
+fast_pivot heading=-90 speed=0.4
+;pidDrive heading=-90
+resetEncoders
+set_drive y=0.6 heading=-90
+wait_for condition=past_y_dist distance=0.6
+set_drive y=0 heading=-90
+resetEncoders
+fast_pivot heading=0 speed=0.25
+;pidDrive heading=0
+resetEncoders
+//Now We are at the low bar
+resetEncoders
+set_drive y=0.8 heading=0
+wait_for condition=past_y_dist distance=12
+;set_shooter mode=auto type=middle command=warm
+;set_drive y=0.9 heading=9
+;set_intake mode=auto command=pull_up
+;wait_for condition=past_y_dist distance=13.5
+;set_drive y=0.8 heading=0
+;wait_for condition=past_y_dist distance=14
+set_drive y=0
+//Turn toward the goal
+resetEncoders
+fast_pivot heading=25 speed=0.9
+resetEncoders
+set_intake mode=auto command=drop_low
+set_drive y=0.6 heading=25
+wait_for condition=past_y_dist distance=0.6
+set_drive y=0 heading=25
+//warmup
+set_shooter mode=auto type=vision command=warm
+wait maxTime=500
+//shoot
+set_shooter mode=auto type=vision command=shot

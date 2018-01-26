@@ -1,0 +1,9 @@
+15: top shooter motor
+12: on bot bottom shooter motor
+13: FMS
+14: on turret bottom shooter motor controller
+0: FL drive
+1: BL drive
+2: FR drive
+3: BR drive
+11: 

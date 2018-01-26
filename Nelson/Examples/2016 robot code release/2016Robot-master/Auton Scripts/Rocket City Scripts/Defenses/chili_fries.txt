@@ -1,0 +1,22 @@
+﻿set_drive y=0 heading=180
+;wait_for condition=past_y_dist distance=-3.75
+set_drive y=0 heading=180
+set_intake mode=auto command=drop_low
+wait maxTime=400
+set_drive y=-0.7 heading=180
+;wait maxTime=250
+set_intake mode=auto command=pull_up
+wait maxTime=500
+wait_for condition=past_roll_limit maxTime=1000
+resetEncoders
+set_drive y=-0.7 heading=180
+wait_for condition=past_y_dist distance=-1
+set_drive y=0 heading=180
+resetEncoders
+fast_pivot heading=0 speed=0.8
+resetEncoders
+;wait maxTime=500
+set_drive y=-0.7 heading=0
+wait_for condition=past_y_dist distance=-1
+set_intake mode=auto command=idle
+resetEncoders

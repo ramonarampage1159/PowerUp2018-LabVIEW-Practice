@@ -1,0 +1,24 @@
+﻿set_intake mode=auto command=idle
+jump condition=2 pos=2 ahead=6
+jump condition=2 pos=5 ahead=5
+set_drive y=0 heading=0
+;wait_for condition=past_y_dist distance=3
+set_drive y=0
+set_drive y=0
+jump condition=0 ahead=5
+set_drive y=.7 heading=0
+wait_for condition=past_y_dist distance=6
+set_drive y=0 heading=0
+jump condition=2 pos=5 ahead=6
+jump condition=2 pos=2 ahead=2
+jump condition=0 ahead=5
+set_drive y=0 heading=25
+fast_pivot heading=25 speed=0.8
+jump condition=0 ahead=2
+fast_pivot heading=-25 speed=0.8
+set_shooter mode=auto type=vision command=warm
+wait maxTime=1000
+set_shooter mode=auto type=vision command=warm
+wait maxTime=1500
+set_shooter mode=auto type=vision command=shot
+set_intake mode=auto command=pull_up

@@ -1,0 +1,30 @@
+//TIME FOR SPLINES
+//Segment 5
+resetEncoders
+fast_pivot heading=0 speed=0.9
+resetEncoders
+set_drive y=0.7 heading=0
+wait_for condition=past_y_dist distance=.646
+//Segment 4
+resetEncoders
+fast_pivot heading=-59.69 speed=0.5
+resetEncoders
+set_drive y=0.7 heading=-59.69
+wait_for condition=past_y_dist distance=.615
+//Segment 3
+resetEncoders
+fast_pivot heading=-67.24 speed=0.9
+resetEncoders
+set_drive y=0.7 heading=-67.24
+wait_for condition=past_y_dist distance=.650
+//Segment 2
+resetEncoders
+fast_pivot heading=-49.57 speed=0.9
+resetEncoders
+set_drive y=0.7 heading=-49.57
+wait_for condition=past_y_dist distance=.739
+//Segment 1
+resetEncoders
+set_drive y=0.7 heading=0
+wait_for condition=past_y_dist distance=.979
+//End Pseudo-Spline
